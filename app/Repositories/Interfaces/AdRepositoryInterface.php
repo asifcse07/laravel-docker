@@ -9,4 +9,5 @@ interface AdRepositoryInterface
     public function getAllAds();
     public function getTotalAds();
     public function getAdById($ad_id);
+    public function getAdByIdWithOutImage($ad_id);
 }

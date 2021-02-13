@@ -169,4 +169,21 @@ class ApiAdController extends Controller
             return $this->errorResponse($e->getMessage(),400,$now);
         }
     }
+
+    //individual ad id
+     //ad list
+    public function view($ad_id){
+        $now = date('Y-m-d H:i:s');
+        try{
+            $getData = $this->adRepository->getAdByIdWithOutImage($ad_id);
+            return $this->successResponse($getData,'Ad details',200,$now, []);
+        } catch(\Exception $e) {
+            $message = "Message : ".$e->getMessage().", File : ".$e->getFile().", Line : ".$e->getLine();
+            $error_response = [
+                "errorMessage"=> $message,
+                "serverReferenceCode"=>$now
+            ];
+            return $this->errorResponse($e->getMessage(),400,$now);
+        }
+    }
 }

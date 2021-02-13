@@ -48,4 +48,12 @@ class AdRepository implements AdRepositoryInterface
 //        print_r($getData); die();
         return $getData;
     }
+
+    public function getAdByIdWithOutImage($ad_id){
+        $getData = Ad::where('id',$ad_id)
+            ->get()
+        ;
+        $returnData = AdCollection::collection($getData);
+        return $returnData;
+    }
 }

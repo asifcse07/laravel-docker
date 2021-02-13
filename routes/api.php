@@ -22,4 +22,5 @@ Route::group(['prefix' => '/v1', 'middleware' => ['api']], function () {
     Route::post('/ad', array('as' => 'save', 'uses' => 'App\Http\Controllers\ApiAdController@add'));
     Route::post('/ad/edit', array('as' => 'save', 'uses' => 'App\Http\Controllers\ApiAdController@edit'));
     Route::get('/ads', array('as' => 'view', 'uses' => 'App\Http\Controllers\ApiAdController@index'));
+    Route::get('/ad/{ad_id}', array('as' => 'view', 'uses' => 'App\Http\Controllers\ApiAdController@view'));
 });
